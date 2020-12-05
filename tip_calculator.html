@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+
+    <style>
+        body {
+            position: absolute;
+            top: 10%;
+            left: 25%;
+            background-color: black;
+            font-size: 50px;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 50px;
+            color: white;
+            font-family: cursive;
+        }
+
+        #container {
+            border: 1px solid white;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        button {
+            background-color: green;
+            border: 1px solid green;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        #isReset {
+            background-color: green;
+            border: 1px solid green;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        #Amnt,
+        #Tip {
+            height: 30px;
+            width: 200px;
+            border: 1px solid white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Designed by Aayush Bhatta</h1>
+
+    <div id="container">
+        <spam>Total Amount</spam> <br>
+        <input type="number" name="amnt" id="Amnt"> <br>
+
+        <spam>Tip Percentage</spam> <br>
+        <input type="number" name="tip" id="Tip"> <br>
+    </div>
+
+    <button onclick="tipCalculate()">Tip Amount</button>
+    <button onclick="totalCalculate()">Amount After Tip</button>
+    <input type="reset" value="Reset" id="isReset" onclick="refresh()">
+
+    <script>
+        function tipCalculate() {
+            let elem = document.getElementById("container");
+            let amount = parseInt(document.getElementById("Amnt").value);
+            let tip_percent = parseInt(document.getElementById("Tip").value);
+
+            let tip_amount = (tip_percent / 100) * amount;
+
+            let paragraph = document.createElement("p");
+            paragraph.textContent = "The total amount of tip that should be given with " + tip_percent + " % tip is " + tip_amount + ".";
+
+            paragraph.style.fontSize = "20px";
+            elem.appendChild(paragraph);
+        }
+
+        function totalCalculate() {
+            let elem = document.getElementById("container");
+            let amount = parseInt(document.getElementById("Amnt").value);
+            let tip_percent = parseInt(document.getElementById("Tip").value);
+
+            let tip_amount = (tip_percent / 100) * amount;
+            let amnt_after_tip = (tip_amount + amount);
+
+            let paragraph = document.createElement("p");
+            paragraph.textContent = "The total amount of money that should be paid after adding tip is " + amnt_after_tip + ".";
+
+            paragraph.style.fontSize = "20px";
+            elem.appendChild(paragraph);
+        }
+
+        function refresh() {
+            location.reload();
+        }
+
+    </script>
+</body>
+
+</html>

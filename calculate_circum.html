@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Circumference</title>
+
+    <style>
+        body {
+            position: absolute;
+            top: 20%;
+            left: 25%;
+            background-color: black;
+            font-size: 50px;
+            text-align: center;
+            color: white;
+        }
+
+        #radius {
+            height: 30px;
+            width: 200px;
+            border: 1px solid white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        button {
+            background-color: green;
+            border: 1px solid green;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        #isReset {
+            background-color: green;
+            border: 1px solid green;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        #block {
+            border: 1px solid white;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 50px;
+            color: white;
+            font-family: cursive;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Designed by Aayush Bhatta</h1>
+
+    <div id="block">
+        <spam>Input Radius of Circle</spam> <br>
+        <input type="number" name="radius" id="radius">
+    </div>
+
+    <button onclick="calcCircumfrence()">Find Circumference</button>
+    <input type="reset" value="Reset" id="isReset" onclick="refresh()">
+
+    <script>
+        function calcCircumfrence() {
+            let elem = document.getElementById("block");
+            let radius = document.getElementById("radius").value;
+
+            let circumference = 2 * Math.PI * radius;
+
+            let paragraph = document.createElement("p");
+            paragraph.textContent = "The circumference of the given circle with the radius " + radius + " is " + circumference.toFixed(2) + ".";
+            paragraph.style.fontSize = "20px";
+            elem.appendChild(paragraph);
+        }
+
+        function refresh() {
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>

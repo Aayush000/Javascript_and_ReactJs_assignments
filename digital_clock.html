@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+
+    <style>
+        body {
+            background-color: black;
+        }
+
+        #digitalClock {
+            position: absolute;
+            top: 45%;
+            left: 35%;
+            color: white;
+            font-size: 80px;
+            border: 1px solid white;
+            padding: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 50px;
+            color: white;
+            font-family: cursive;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Digital Clock By Aayush Bhatta</h1>
+
+    <spam id="digitalClock"></spam>
+
+    <script>
+        function showTime() {
+            let date = new Date();
+            let hrs = date.getHours();
+            let min = date.getMinutes();
+            let sec = date.getSeconds();
+            let session = "AM";
+
+            if (hrs == 0) {
+                hrs = 12;
+            }
+
+            if (hrs > 12) {
+                hrs -= 12;
+                session = "PM";
+            }
+
+            hrs = (hrs < 10) ? "0" + hrs : hrs;
+            min = (min < 10) ? "0" + min : min;
+            sec = (sec < 10) ? "0" + sec : sec;
+
+            let time = hrs + ":" + min + ":" + sec + " " + session;
+
+            document.getElementById("digitalClock").innerText = time;
+
+            setTimeout(showTime, 1000);
+        }
+
+        showTime();
+    </script>
+
+</body>
+
+</html>
